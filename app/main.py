@@ -63,25 +63,6 @@ def custom_openapi():
 
 app.openapi = custom_openapi
 
-
-@app.get("/health")
-def health_check():
-    return {"status": "healthy", "message": "Container Service API is running"}
-
-
-@app.get("/")
-def root():
-    return {
-        "message": "Welcome to Container Service API",
-        "docs": "/docs",
-        "redoc": "/redoc",
-        "authentication": {
-            "login": "/auth/login",
-            "refresh": "/auth/refresh"
-        }
-    }
-
-
 if __name__ == "__main__":
     import uvicorn
 
